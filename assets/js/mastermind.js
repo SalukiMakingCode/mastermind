@@ -12,6 +12,15 @@
     document.querySelector("#stageChecker").dataset.board="4";
     let combinaison=[];
 
+    //alerte() replace alert()
+    document.getElementById("alertCloseButton").addEventListener("click", ()=> {
+        document.getElementById("alert").style.display="none";
+    })
+    function alerte(text) {
+        document.getElementById("alertText").innerHTML=text;
+        document.getElementById("alert").style.display="flex";
+    }
+
     //end of a level
     function endGame(action) {
         let level=document.querySelector("#stageChecker").dataset.level;
@@ -300,7 +309,7 @@
     // use bonus
     function useBonus(id) {
         if (id==="bonus-4-2" || id==="bonus-5-2" || id==="bonus-6-2") {
-            if (document.querySelector("#stageChecker").dataset.status==="1") alert("Vous ne pouvez pas utilisez ce bonus avant d'avoir validé au moins une ligne");
+            if (document.querySelector("#stageChecker").dataset.status==="1") alerte("Vous ne pouvez pas utilisez ce bonus avant d'avoir validé au moins une ligne");
             else {
                 document.querySelector("#stageChecker").dataset.status=(Number(document.querySelector("#stageChecker").dataset.status)-1).toString(10);
                 document.querySelector("#" + id).dataset.nb=(Number(document.querySelector("#" + id).dataset.nb)-1).toString(10);
@@ -335,7 +344,7 @@
                 let idToCheck = "line" + document.querySelector("#stageChecker").dataset.status + "-b" + limit + "-" + i;
                 if (document.querySelector("#" + idToCheck).dataset.fixed === "1") checkBonusCanUse++;
             }
-            if (checkBonusCanUse === limit) alert("You should be joking ?? You allready have all the pawn position !");
+            if (checkBonusCanUse === limit) alerte("You should be joking ?? You allready have all the pawn position !");
             else {
                 let selected = false;
             while (selected === false) {
@@ -368,7 +377,7 @@
     document.querySelectorAll('.bonus').forEach((element) =>
         element.addEventListener('click', () => {
             if (Number(document.querySelector("#" + element.id).dataset.nb)>0) useBonus(element.id);
-            else alert("Vous n'avez plus ce bonus en réserve");
+            else alerte("Vous n'avez plus ce bonus en réserve");
         }));
 
     // listen the click on the pawn
@@ -396,7 +405,7 @@
                 idToCatch = "line" + document.querySelector("#stageChecker").dataset.status + "-b" + document.querySelector("#stageChecker").dataset.board + "-" + i;
                 if (document.querySelector("#" + idToCatch).dataset.value !== "0") count++;
             }
-            if (count < document.querySelector("#stageChecker").dataset.board) alert("La ligne doit être entièrement remplie");
+            if (count < document.querySelector("#stageChecker").dataset.board) alerte("La ligne doit être entièrement remplie");
             else {
                 let whitePawn = 0;
                 let blackPawn = 0;
