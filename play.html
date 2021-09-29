@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./assets/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <meta charset="UTF-8">
+    <meta name="description" content="Jouer au mastermind online gratuitement"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Mastermind</title>
+</head>
+<body>
+<header class="play">
+    <mark id="stageChecker" data-level="1" data-status="noStart" data-nbcolor="0" data-board="0">Level 1</mark>
+</header>
+<main class="play">
+  <div id="board4">
+      <div class="playground">
+        <div id="line12-b4" class="line">
+            <div id="line12-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line12-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line12-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line12-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line11-b4" class="line">
+            <div id="line11-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line11-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line11-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line11-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line10-b4" class="line">
+            <div id="line10-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line10-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line10-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line10-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line9-b4" class="line">
+            <div id="line9-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line9-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line9-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line9-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line8-b4" class="line">
+            <div id="line8-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line8-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line8-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line8-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line7-b4" class="line">
+            <div id="line7-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line7-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line7-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line7-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line6-b4" class="line">
+            <div id="line6-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line6-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line6-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line6-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line5-b4" class="line">
+            <div id="line5-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line5-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line5-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line5-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line4-b4" class="line">
+            <div id="line4-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line4-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line4-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line4-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line3-b4" class="line">
+            <div id="line3-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line3-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line3-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line3-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line2-b4" class="line">
+            <div id="line2-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line2-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line2-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line2-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+        <div id="line1-b4" class="line">
+            <div id="line1-b4-1" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line1-b4-2" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line1-b4-3" class="pawn" data-fixed="0" data-value="0"></div>
+            <div id="line1-b4-4" class="pawn" data-fixed="0" data-value="0"></div>
+        </div>
+      </div>
+      <div class="checkground">
+          <div id="checkline12-b4" class="checkline">
+              <div id="checkline12-b4-1" class="check"></div>
+              <div id="checkline12-b4-2" class="check"></div>
+              <div id="checkline12-b4-3" class="check"></div>
+              <div id="checkline12-b4-4" class="check"></div>
+          </div>
+          <div id="checkline11-b4" class="checkline">
+              <div id="checkline11-b4-1" class="check"></div>
+              <div id="checkline11-b4-2" class="check"></div>
+              <div id="checkline11-b4-3" class="check"></div>
+              <div id="checkline11-b4-4" class="check"></div>
+          </div>
+          <div id="checkline10-b4" class="checkline">
+              <div id="checkline10-b4-1" class="check"></div>
+              <div id="checkline10-b4-2" class="check"></div>
+              <div id="checkline10-b4-3" class="check"></div>
+              <div id="checkline10-b4-4" class="check"></div>
+          </div>
+          <div id="checkline9-b4" class="checkline">
+              <div id="checkline9-b4-1" class="check"></div>
+              <div id="checkline9-b4-2" class="check"></div>
+              <div id="checkline9-b4-3" class="check"></div>
+              <div id="checkline9-b4-4" class="check"></div>
+          </div>
+          <div id="checkline8-b4" class="checkline">
+              <div id="checkline8-b4-1" class="check"></div>
+              <div id="checkline8-b4-2" class="check"></div>
+              <div id="checkline8-b4-3" class="check"></div>
+              <div id="checkline8-b4-4" class="check"></div>
+          </div>
+          <div id="checkline7-b4" class="checkline">
+              <div id="checkline7-b4-1" class="check"></div>
+              <div id="checkline7-b4-2" class="check"></div>
+              <div id="checkline7-b4-3" class="check"></div>
+              <div id="checkline7-b4-4" class="check"></div>
+          </div>
+          <div id="checkline6-b4" class="checkline">
+              <div id="checkline6-b4-1" class="check"></div>
+              <div id="checkline6-b4-2" class="check"></div>
+              <div id="checkline6-b4-3" class="check"></div>
+              <div id="checkline6-b4-4" class="check"></div>
+          </div>
+          <div id="checkline5-b4" class="checkline">
+              <div id="checkline5-b4-1" class="check"></div>
+              <div id="checkline5-b4-2" class="check"></div>
+              <div id="checkline5-b4-3" class="check"></div>
+              <div id="checkline5-b4-4" class="check"></div>
+          </div>
+          <div id="checkline4-b4" class="checkline">
+              <div id="checkline4-b4-1" class="check"></div>
+              <div id="checkline4-b4-2" class="check"></div>
+              <div id="checkline4-b4-3" class="check"></div>
+              <div id="checkline4-b4-4" class="check"></div>
+          </div>
+          <div id="checkline3-b4" class="checkline">
+              <div id="checkline3-b4-1" class="check"></div>
+              <div id="checkline3-b4-2" class="check"></div>
+              <div id="checkline3-b4-3" class="check"></div>
+              <div id="checkline3-b4-4" class="check"></div>
+          </div>
+          <div id="checkline2-b4" class="checkline">
+              <div id="checkline2-b4-1" class="check"></div>
+              <div id="checkline2-b4-2" class="check"></div>
+              <div id="checkline2-b4-3" class="check"></div>
+              <div id="checkline2-b4-4" class="check"></div>
+          </div>
+          <div id="checkline1-b4" class="checkline">
+              <div id="checkline1-b4-1" class="check"></div>
+              <div id="checkline1-b4-2" class="check"></div>
+              <div id="checkline1-b4-3" class="check"></div>
+              <div id="checkline1-b4-4" class="check"></div>
+          </div>
+      </div>
+      <div class="actiongame">
+        <div class="title">How to play ?</div>
+        <p>Click on the board cell to change the color of this cell.</p>
+        <p>When a line is completed, click the "Check" button.</p>
+        <p>To use a bonus, click on it.</p>
+        <hr/>
+        <div class="title">Bonus</div>
+        <div class="boxbonus">
+          <div class="bonus" id="bonus-4-1" data-nb="6"> One position (6) </div>
+          <div class="bonus" id="bonus-4-2" data-nb="4"> One line back (4) </div>
+        </div>
+        <hr/>
+          <div class="checkbutton">Check</div>
+      </div>
+  </div>
+    <div id="board5">
+        <div class="playground">
+            <div id="line12-b5" class="line">
+                <div id="line12-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line12-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line12-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line12-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line12-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line11-b5" class="line">
+                <div id="line11-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line11-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line11-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line11-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line11-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line10-b5" class="line">
+                <div id="line10-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line10-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line10-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line10-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line10-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line9-b5" class="line">
+                <div id="line9-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line9-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line9-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line9-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line9-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line8-b5" class="line">
+                <div id="line8-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line8-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line8-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line8-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line8-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line7-b5" class="line">
+                <div id="line7-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line7-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line7-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line7-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line7-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line6-b5" class="line">
+                <div id="line6-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line6-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line6-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line6-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line6-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line5-b5" class="line">
+                <div id="line5-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line5-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line5-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line5-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line5-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line4-b5" class="line">
+                <div id="line4-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line4-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line4-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line4-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line4-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line3-b5" class="line">
+                <div id="line3-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line3-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line3-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line3-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line3-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line2-b5" class="line">
+                <div id="line2-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line2-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line2-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line2-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line2-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line1-b5" class="line">
+                <div id="line1-b5-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line1-b5-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line1-b5-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line1-b5-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line1-b5-5" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+        </div>
+        <div class="checkground">
+            <div id="checkline12-b5" class="checkline">
+                <div id="checkline12-b5-1" class="check"></div>
+                <div id="checkline12-b5-2" class="check"></div>
+                <div id="checkline12-b5-3" class="check"></div>
+                <div id="checkline12-b5-4" class="check"></div>
+                <div id="checkline12-b5-5" class="check"></div>
+            </div>
+            <div id="checkline11-b5" class="checkline">
+                <div id="checkline11-b5-1" class="check"></div>
+                <div id="checkline11-b5-2" class="check"></div>
+                <div id="checkline11-b5-3" class="check"></div>
+                <div id="checkline11-b5-4" class="check"></div>
+                <div id="checkline11-b5-5" class="check"></div>
+            </div>
+            <div id="checkline10-b5" class="checkline">
+                <div id="checkline10-b5-1" class="check"></div>
+                <div id="checkline10-b5-2" class="check"></div>
+                <div id="checkline10-b5-3" class="check"></div>
+                <div id="checkline10-b5-4" class="check"></div>
+                <div id="checkline10-b5-5" class="check"></div>
+            </div>
+            <div id="checkline9-b5" class="checkline">
+                <div id="checkline9-b5-1" class="check"></div>
+                <div id="checkline9-b5-2" class="check"></div>
+                <div id="checkline9-b5-3" class="check"></div>
+                <div id="checkline9-b5-4" class="check"></div>
+                <div id="checkline9-b5-5" class="check"></div>
+            </div>
+            <div id="checkline8-b5" class="checkline">
+                <div id="checkline8-b5-1" class="check"></div>
+                <div id="checkline8-b5-2" class="check"></div>
+                <div id="checkline8-b5-3" class="check"></div>
+                <div id="checkline8-b5-4" class="check"></div>
+                <div id="checkline8-b5-5" class="check"></div>
+            </div>
+            <div id="checkline7-b5" class="checkline">
+                <div id="checkline7-b5-1" class="check"></div>
+                <div id="checkline7-b5-2" class="check"></div>
+                <div id="checkline7-b5-3" class="check"></div>
+                <div id="checkline7-b5-4" class="check"></div>
+                <div id="checkline7-b5-5" class="check"></div>
+            </div>
+            <div id="checkline6-b5" class="checkline">
+                <div id="checkline6-b5-1" class="check"></div>
+                <div id="checkline6-b5-2" class="check"></div>
+                <div id="checkline6-b5-3" class="check"></div>
+                <div id="checkline6-b5-4" class="check"></div>
+                <div id="checkline6-b5-5" class="check"></div>
+            </div>
+            <div id="checkline5-b5" class="checkline">
+                <div id="checkline5-b5-1" class="check"></div>
+                <div id="checkline5-b5-2" class="check"></div>
+                <div id="checkline5-b5-3" class="check"></div>
+                <div id="checkline5-b5-4" class="check"></div>
+                <div id="checkline5-b5-5" class="check"></div>
+            </div>
+            <div id="checkline4-b5" class="checkline">
+                <div id="checkline4-b5-1" class="check"></div>
+                <div id="checkline4-b5-2" class="check"></div>
+                <div id="checkline4-b5-3" class="check"></div>
+                <div id="checkline4-b5-4" class="check"></div>
+                <div id="checkline4-b5-5" class="check"></div>
+            </div>
+            <div id="checkline3-b5" class="checkline">
+                <div id="checkline3-b5-1" class="check"></div>
+                <div id="checkline3-b5-2" class="check"></div>
+                <div id="checkline3-b5-3" class="check"></div>
+                <div id="checkline3-b5-4" class="check"></div>
+                <div id="checkline3-b5-5" class="check"></div>
+            </div>
+            <div id="checkline2-b5" class="checkline">
+                <div id="checkline2-b5-1" class="check"></div>
+                <div id="checkline2-b5-2" class="check"></div>
+                <div id="checkline2-b5-3" class="check"></div>
+                <div id="checkline2-b5-4" class="check"></div>
+                <div id="checkline2-b5-5" class="check"></div>
+            </div>
+            <div id="checkline1-b5" class="checkline">
+                <div id="checkline1-b5-1" class="check"></div>
+                <div id="checkline1-b5-2" class="check"></div>
+                <div id="checkline1-b5-3" class="check"></div>
+                <div id="checkline1-b5-4" class="check"></div>
+                <div id="checkline1-b5-5" class="check"></div>
+            </div>
+        </div>
+        <div class="actiongame">
+            <div class="title">How to play ?</div>
+            <p>Click on the board cell to change the color of this cell.</p>
+            <p>When a line is completed, click the "Check" button.</p>
+            <p>To use a bonus, click on it.</p>
+            <hr/>
+            <div class="title">Bonus</div>
+            <div class="boxbonus">
+                <div class="bonus" id="bonus-5-1" data-nb=""></div>
+                <div class="bonus" id="bonus-5-2" data-nb=""></div>
+            </div>
+            <hr/>
+            <div class="checkbutton">Check</div>
+        </div>
+    </div>
+    <div id="board6">
+        <div class="playground">
+            <div id="line12-b6" class="line">
+                <div id="line12-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line12-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line12-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line12-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line12-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line12-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line11-b6" class="line">
+                <div id="line11-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line11-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line11-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line11-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line11-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line11-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line10-b6" class="line">
+                <div id="line10-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line10-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line10-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line10-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line10-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line10-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line9-b6" class="line">
+                <div id="line9-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line9-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line9-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line9-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line9-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line9-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line8-b6" class="line">
+                <div id="line8-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line8-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line8-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line8-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line8-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line8-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line7-b6" class="line">
+                <div id="line7-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line7-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line7-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line7-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line7-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line7-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line6-b6" class="line">
+                <div id="line6-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line6-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line6-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line6-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line6-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line6-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line5-b6" class="line">
+                <div id="line5-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line5-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line5-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line5-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line5-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line5-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line4-b6" class="line">
+                <div id="line4-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line4-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line4-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line4-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line4-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line4-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line3-b6" class="line">
+                <div id="line3-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line3-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line3-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line3-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line3-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line3-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line2-b6" class="line">
+                <div id="line2-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line2-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line2-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line2-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line2-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line2-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+            <div id="line1-b6" class="line">
+                <div id="line1-b6-1" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line1-b6-2" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line1-b6-3" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line1-b6-4" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line1-b6-5" class="pawn" data-fixed="0" data-value="0"></div>
+                <div id="line1-b6-6" class="pawn" data-fixed="0" data-value="0"></div>
+            </div>
+        </div>
+        <div class="checkground">
+            <div id="checkline12-b6" class="checkline">
+                <div id="checkline12-b6-1" class="check"></div>
+                <div id="checkline12-b6-2" class="check"></div>
+                <div id="checkline12-b6-3" class="check"></div>
+                <div id="checkline12-b6-4" class="check"></div>
+                <div id="checkline12-b6-5" class="check"></div>
+                <div id="checkline12-b6-6" class="check"></div>
+            </div>
+            <div id="checkline11-b6" class="checkline">
+                <div id="checkline11-b6-1" class="check"></div>
+                <div id="checkline11-b6-2" class="check"></div>
+                <div id="checkline11-b6-3" class="check"></div>
+                <div id="checkline11-b6-4" class="check"></div>
+                <div id="checkline11-b6-5" class="check"></div>
+                <div id="checkline11-b6-6" class="check"></div>
+            </div>
+            <div id="checkline10-b6" class="checkline">
+                <div id="checkline10-b6-1" class="check"></div>
+                <div id="checkline10-b6-2" class="check"></div>
+                <div id="checkline10-b6-3" class="check"></div>
+                <div id="checkline10-b6-4" class="check"></div>
+                <div id="checkline10-b6-5" class="check"></div>
+                <div id="checkline10-b6-6" class="check"></div>
+            </div>
+            <div id="checkline9-b6" class="checkline">
+                <div id="checkline9-b6-1" class="check"></div>
+                <div id="checkline9-b6-2" class="check"></div>
+                <div id="checkline9-b6-3" class="check"></div>
+                <div id="checkline9-b6-4" class="check"></div>
+                <div id="checkline9-b6-5" class="check"></div>
+                <div id="checkline9-b6-6" class="check"></div>
+            </div>
+            <div id="checkline8-b6" class="checkline">
+                <div id="checkline8-b6-1" class="check"></div>
+                <div id="checkline8-b6-2" class="check"></div>
+                <div id="checkline8-b6-3" class="check"></div>
+                <div id="checkline8-b6-4" class="check"></div>
+                <div id="checkline8-b6-5" class="check"></div>
+                <div id="checkline8-b6-6" class="check"></div>
+            </div>
+            <div id="checkline7-b6" class="checkline">
+                <div id="checkline7-b6-1" class="check"></div>
+                <div id="checkline7-b6-2" class="check"></div>
+                <div id="checkline7-b6-3" class="check"></div>
+                <div id="checkline7-b6-4" class="check"></div>
+                <div id="checkline7-b6-5" class="check"></div>
+                <div id="checkline7-b6-6" class="check"></div>
+            </div>
+            <div id="checkline6-b6" class="checkline">
+                <div id="checkline6-b6-1" class="check"></div>
+                <div id="checkline6-b6-2" class="check"></div>
+                <div id="checkline6-b6-3" class="check"></div>
+                <div id="checkline6-b6-4" class="check"></div>
+                <div id="checkline6-b6-5" class="check"></div>
+                <div id="checkline6-b6-6" class="check"></div>
+            </div>
+            <div id="checkline5-b6" class="checkline">
+                <div id="checkline5-b6-1" class="check"></div>
+                <div id="checkline5-b6-2" class="check"></div>
+                <div id="checkline5-b6-3" class="check"></div>
+                <div id="checkline5-b6-4" class="check"></div>
+                <div id="checkline5-b6-5" class="check"></div>
+                <div id="checkline5-b6-6" class="check"></div>
+            </div>
+            <div id="checkline4-b6" class="checkline">
+                <div id="checkline4-b6-1" class="check"></div>
+                <div id="checkline4-b6-2" class="check"></div>
+                <div id="checkline4-b6-3" class="check"></div>
+                <div id="checkline4-b6-4" class="check"></div>
+                <div id="checkline4-b6-5" class="check"></div>
+                <div id="checkline4-b6-6" class="check"></div>
+            </div>
+            <div id="checkline3-b6" class="checkline">
+                <div id="checkline3-b6-1" class="check"></div>
+                <div id="checkline3-b6-2" class="check"></div>
+                <div id="checkline3-b6-3" class="check"></div>
+                <div id="checkline3-b6-4" class="check"></div>
+                <div id="checkline3-b6-5" class="check"></div>
+                <div id="checkline3-b6-6" class="check"></div>
+            </div>
+            <div id="checkline2-b6" class="checkline">
+                <div id="checkline2-b6-1" class="check"></div>
+                <div id="checkline2-b6-2" class="check"></div>
+                <div id="checkline2-b6-3" class="check"></div>
+                <div id="checkline2-b6-4" class="check"></div>
+                <div id="checkline2-b6-5" class="check"></div>
+                <div id="checkline2-b6-6" class="check"></div>
+            </div>
+            <div id="checkline1-b6" class="checkline">
+                <div id="checkline1-b6-1" class="check"></div>
+                <div id="checkline1-b6-2" class="check"></div>
+                <div id="checkline1-b6-3" class="check"></div>
+                <div id="checkline1-b6-4" class="check"></div>
+                <div id="checkline1-b6-5" class="check"></div>
+                <div id="checkline1-b6-6" class="check"></div>
+            </div>
+        </div>
+        <div class="actiongame">
+            <div class="title">How to play ?</div>
+            <p>Click on the board cell to change the color of this cell.</p>
+            <p>When a line is completed, click the "Check" button.</p>
+            <p>To use a bonus, click on it.</p>
+            <hr/>
+            <div class="title">Bonus</div>
+            <div class="boxbonus">
+                <div class="bonus" id="bonus-6-1" data-nb=""></div>
+                <div class="bonus" id="bonus-6-2" data-nb=""></div>
+            </div>
+            <hr/>
+            <div class="checkbutton">Check</div>
+        </div>
+    </div>
+</main>
+
+<div id="myModal" class="modal animate__animated animate__backInDown">
+    <div id="modal-content">
+        <p id="welcome">Welcome to the Mastermind Challenge</p>
+        <p id="line1">You will have to finish the 10 levels to win the game. The difficulty will increase every level.</p>
+        <p id="line2">The aim of the game is to guess the position of each colour in the combination. Each time you propose a combination, you will see black and white pieces appear. Black means that you have a well placed pawn, white means that the pawn exists but is not well placed. But these pieces do not tell you which colour is well or badly placed!</p>
+        <p id="line3">You have some bonuses to complete the game, but use them wisely, they are limited for the whole game.</p>
+         <div id="pushTheButton" class="pushTheButton">Start the game</div>
+    </div>
+</div>
+<script src="./assets/js/mastermind.js"></script>
+</body>
+</html>
