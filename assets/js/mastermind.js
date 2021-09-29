@@ -128,6 +128,10 @@
             document.querySelector("#stageChecker").dataset.board="5";
             document.getElementById("board4").style.display = "none";
             document.getElementById("board5").style.display = "flex";
+            document.querySelector("#bonus-5-1").dataset.nb=document.querySelector("#bonus-4-1").dataset.nb;
+            document.getElementById("bonus-5-1").innerText="One position ("+ document.querySelector("#bonus-4-1").dataset.nb + ")";
+            document.querySelector("#bonus-5-2").dataset.nb=document.querySelector("#bonus-4-2").dataset.nb;
+            document.getElementById("bonus-5-2").innerText="One line back ("+ document.querySelector("#bonus-4-2").dataset.nb + ")";
             resetBoard();
             randomPicker();
         }
@@ -217,6 +221,10 @@
             document.querySelector("#stageChecker").dataset.board="6";
             document.getElementById("board5").style.display = "none";
             document.getElementById("board6").style.display = "flex";
+            document.querySelector("#bonus-6-1").dataset.nb=document.querySelector("#bonus-5-1").dataset.nb;
+            document.getElementById("bonus-6-1").innerText="One position ("+ document.querySelector("#bonus-5-1").dataset.nb + ")";
+            document.querySelector("#bonus-6-2").dataset.nb=document.querySelector("#bonus-5-2").dataset.nb;
+            document.getElementById("bonus-6-2").innerText="One line back ("+ document.querySelector("#bonus-5-2").dataset.nb + ")";
             resetBoard();
             randomPicker();
         }
@@ -289,6 +297,79 @@
             document.querySelector("#" + element.id).style.backgroundColor="transparent";
         });
     }
+    // use bonus
+    function useBonus(id) {
+        if (id==="bonus-4-2" || id==="bonus-5-2" || id==="bonus-6-2") {
+            if (document.querySelector("#stageChecker").dataset.status==="1") alert("Vous ne pouvez pas utilisez ce bonus avant d'avoir validé au moins une ligne");
+            else {
+                document.querySelector("#stageChecker").dataset.status=(Number(document.querySelector("#stageChecker").dataset.status)-1).toString(10);
+                document.querySelector("#" + id).dataset.nb=(Number(document.querySelector("#" + id).dataset.nb)-1).toString(10);
+                document.getElementById(id).innerText="One line back ("+ document.querySelector("#" + id).dataset.nb + ")";
+                let limit=0;
+                if (id==="bonus-4-2") { limit=4; }
+                if (id==="bonus-5-2") { limit=5; }
+                if (id==="bonus-6-2") { limit=6; }
+                for (let i=1; i<=limit; i++) {
+                    let idToChange="line" + document.querySelector("#stageChecker").dataset.status + "-b" + limit + "-" + i;
+                    document.querySelector("#" + idToChange).dataset.fixed = "0";
+                    document.querySelector("#" + idToChange).dataset.value = "0";
+                    document.querySelector("#" + idToChange).style.backgroundColor = "transparent";
+                    document.querySelector("#check" + idToChange).style.backgroundColor = "transparent";
+                }
+
+            }
+        }
+        if (id==="bonus-4-1" || id==="bonus-5-1" || id==="bonus-6-1") {
+            let limit = 0;
+            if (id === "bonus-4-1") {
+                limit = 4;
+            }
+            if (id === "bonus-5-1") {
+                limit = 5;
+            }
+            if (id === "bonus-6-1") {
+                limit = 6;
+            }
+            let checkBonusCanUse = 0;
+            for (let i = 1; i <= limit; i++) {
+                let idToCheck = "line" + document.querySelector("#stageChecker").dataset.status + "-b" + limit + "-" + i;
+                if (document.querySelector("#" + idToCheck).dataset.fixed === "1") checkBonusCanUse++;
+            }
+            if (checkBonusCanUse === limit) alert("You should be joking ?? You allready have all the pawn position !");
+            else {
+                let selected = false;
+            while (selected === false) {
+                let randMeThis = Math.floor(Math.random() * limit) + 1;
+                let randMeThisPosition = randMeThis--;
+                let idToChange = "line" + document.querySelector("#stageChecker").dataset.status + "-b" + limit + "-" + randMeThisPosition;
+                if (document.querySelector("#" + idToChange).dataset.fixed === "0") {
+                    selected = true;
+                    let correctPawn = combinaison[randMeThis];
+                    let theColor = "colorPion" + correctPawn;
+                    let lineToChange = Number(document.querySelector("#stageChecker").dataset.status);
+                    for (let i = document.querySelector("#stageChecker").dataset.status; i < 13; i++) {
+                        let idToChange = "line" + lineToChange + "-b" + limit + "-" + randMeThisPosition;
+                        document.querySelector("#" + idToChange).dataset.fixed = "1";
+                        document.querySelector("#" + idToChange).dataset.value = correctPawn;
+                        document.querySelector("#" + idToChange).style.backgroundColor = eval(theColor);
+                        lineToChange++;
+                    }
+                    document.querySelector("#" + id).dataset.nb = (Number(document.querySelector("#" + id).dataset.nb) - 1).toString(10);
+                    document.getElementById(id).innerText = "One position (" + document.querySelector("#" + id).dataset.nb + ")";
+                }
+            }
+        }
+        }
+
+    }
+
+
+    // listen the click on bonus
+    document.querySelectorAll('.bonus').forEach((element) =>
+        element.addEventListener('click', () => {
+            if (Number(document.querySelector("#" + element.id).dataset.nb)>0) useBonus(element.id);
+            else alert("Vous n'avez plus ce bonus en réserve");
+        }));
 
     // listen the click on the pawn
     document.querySelectorAll('.pawn').forEach((element) =>
